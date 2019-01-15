@@ -441,9 +441,13 @@ Router::route(const Http::Request& req, Http::ResponseWriter response) {
         if (handler1 == Route::Result::Ok) return Route::Status::Match;
     }
 
-    //No route or custom handler found. Let's walk through the list of other methods and see if any of them support
-    // this resource. This will allow server to send a HTTP 405 (method not allowed) response.
-    //RFC requires HTTP 405 responses to include a list of supported methods for the requested resource.
+    //No route or custom handler found. Let's walk through the
+    // list of other methods and see if any of them support
+    // this resource.
+    //This will allow server to send a
+    // HTTP 405 (method not allowed) response.
+    //RFC 7231 requires HTTP 405 responses to include a list of
+    // supported methods for the requested resource.
     std::vector<Http::Method> supportedMethods;
     for (auto& methods: routes) {
         if (methods.first == req.method()) continue;
@@ -461,9 +465,9 @@ Router::route(const Http::Request& req, Http::ResponseWriter response) {
     }
 
     if (hasNotFoundHandler()) {
-        invokeNotFoundHandler(req, std::move(response));
+      invokeNotFoundHandler(req, std::move(response));
     } else {
-        response.send(Http::Code::Not_Found, "Could not find a matching route");
+      response.send(Http::Code::Not_Found, "Could not find a matching route");
     }
     return Route::Status::NotFound;
 }
