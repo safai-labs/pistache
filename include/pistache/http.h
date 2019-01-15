@@ -487,6 +487,12 @@ public:
      * - movedPermantly -> 301
      * - moved() -> 302
      */
+    Async::Promise<ssize_t> sendMethodNotAllowed(const std::vector<Http::Method>& supportedMethods) {
+        code_ = Http::Code::Method_Not_Allowed;
+        headers_.add(std::shared_ptr<Http::Header::Header>(new Header::Allow(supportedMethods)));
+        std::string body = "Method Not Allowed";
+        return putOnWire(body.c_str(), body.size());
+    }
 
     Async::Promise<ssize_t> send(Code code) {
         code_ = code;
