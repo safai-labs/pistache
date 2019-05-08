@@ -1,3 +1,12 @@
+# This is a clone of Pistache,
+
+At the moment there aren't any changes except one pull from another fork. See diffs.
+
+While it's not expected that this code will diverge from upstream, please do not use it for *production code*. Pull from upstream below.
+
+Original README.md
+-----
+
 # Pistache
 [![N|Solid](http://pistache.io/assets/images/logo.png)](https://www.github.com/oktal/pistache)
 [![Travis Build Status](https://travis-ci.org/oktal/pistache.svg?branch=master)](https://travis-ci.org/oktal/pistache)
