@@ -1,4 +1,4 @@
-# This is a clone of Pistache,
+# This is a fork of Pistache
 
 At the moment there aren't any changes except one pull from another fork. See diffs.
 
